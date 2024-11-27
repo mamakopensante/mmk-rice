@@ -3,27 +3,25 @@
 BRIGHTNESS_STEPS=5
 
 function get_brightness {
+
   brightnessctl i | grep -oP '\(\K[^%\)]+'
+
 }
 
 function send_notification {
 
   brightness=$(get_brightness)
 
-  # Send the notification
-
-  dunstify "Brightness : $brightness%" -r 5555 -u normal
+  dunstify "Brightness : $brightness%" -u normal
 
 }
 
 case $1 in
   up)
-    # increase the backlight by 5%
     brightnessctl set "${BRIGHTNESS_STEPS:-5}%+" -q
     send_notification
     ;;
   down)
-    # decrease the backlight by 5%
     brightnessctl set "${BRIGHTNESS_STEPS:-5}%-" -q
     send_notification
     ;;
