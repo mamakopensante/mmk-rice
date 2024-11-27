@@ -1,0 +1,57 @@
+[general]
+
+live_config_reload = true
+
+[cursor]
+
+blink_interval = 250
+unfocused_hollow = false
+thickness = 0.2
+style = { blinking = "Always", shape = "Underline" }
+
+[selection]
+
+save_to_clipboard = true
+
+[window]
+
+decorations = "none"
+dynamic_title = true
+opacity = 1.0
+dynamic_padding = true
+padding = { x = 10, y = 10 }
+
+[colors.primary]
+
+background = "#000000"
+foreground = "#AAAAAA"
+
+[colors.normal]
+
+black = "#555555"
+red = "#ff5555"
+green = "#55ff55"
+yellow = "#ffff55"
+blue = "#5555ff"
+magenta = "#ff55ff"
+cyan = "#55ffff"
+white = "#ffffff"
+
+[colors.bright]
+
+black = "#555555"
+red = "#ff5555"
+green = "#55ff55"
+yellow = "#ffff55"
+blue = "#5555ff"
+magenta = "#ff55ff"
+cyan = "#55ffff"
+white = "#ffffff"
+
+[font]
+
+normal = { family = "VGA", style = "Regular" }
+bold = { family = "VGA", style = "Bold" }
+italic = { family = "VGA", style = "Italic" }
+bold_italic = { family = "VGA", style = "BoldItalic" }
+size = 10
