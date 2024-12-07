@@ -1,0 +1,125 @@
+
+configuration {
+
+	show-icons:	false;
+	hover-select:				true;
+	me-select-entry:			"";
+	me-accept-entry:			"MousePrimary";
+
+}
+
+* {
+
+	separatorcolor:	transparent;
+
+	background:	#000000;
+	foreground:	#AAAAAA;
+
+	selected-normal-background:	#5555ff;
+	selected-normal-foreground:	#000000;
+
+	selected-active-background:	#ff5555;
+	selected-active-foreground:	#000000;
+
+	active-background:	transparent;
+	active-foreground:	#ff5555;
+
+	alternate-normal-background: 	transparent;
+	alternate-normal-foreground:	#AAAAAA;
+
+	alternate-active-background:	transparent;
+	alternate-active-foreground:	#ff5555;
+
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       50%;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    background-color:            @background;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     0px;
+    border:			 1px;
+    border-color:		 @foreground;
+    background-color:            @background;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "textbox-prompt-colon", "prompt" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    font:                        "Cantarell Regular 11";
+    str:                         "Power Menu:";
+    padding:                     5px 16px 5px 8px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+
+prompt {
+    enabled:                     false;
+}
+
+message {
+    enabled:                     false;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     1px;
+    border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  transparent;
+    cursor:                      "default";
+}
+
+element {
+    enabled:                     true;
+    padding:                     0px 0px;
+    border:                      0px;
+    border-radius:               0px;
+    border-color:		 @background;
+    background-color:            @background;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element-text {
+    font:                        "Material Design Icons Desktop 18";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            @selected-normal-background;
+    text-color:                  @background;
+}

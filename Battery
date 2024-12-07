@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+export DISPLAY=:0
+
+battery_level=`acpi | grep -P -o '[0-9]+(?=%)'`
+battery_charging=`acpi | grep "Battery 0" | grep -c "Charging"`
+
+if [ $battery_level -le 30 ] && [ $battery_charging -eq 0 ]; then
+
+    dunstify -u critical "Battery : ${battery_level}%"
+
+fi
