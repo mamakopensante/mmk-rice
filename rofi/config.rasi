@@ -2,6 +2,8 @@ configuration {
 
 	font:	"Cantarell Regular 12";
 	modi:	"drun,calc,window";
+   key-switch-modi:  "Right";
+   key-switch-modi-back:   "Left";
 	display-drun:	"Applications";
 	display-window:	"Window";
 	display-calc:	"Calc";

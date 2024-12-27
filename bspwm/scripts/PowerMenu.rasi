@@ -92,7 +92,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     1px;
+    spacing:                     0px;
     border-color:                transparent;
     background-color:            transparent;
     text-color:                  transparent;
@@ -111,7 +111,7 @@ element {
 }
 
 element-text {
-    font:                        "Material Design Icons Desktop 18";
+    font:                        "Material Design Icons Desktop 14";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
