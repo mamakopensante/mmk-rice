@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# ID's
+
+PAD_ID=$(xinput list | grep -i "HUION Huion Tablet Pad" | grep -o "id=[0-9]*" | cut -d= -f2)
+PEN_ID=$(xinput list | grep -i "HUION Huion Tablet Pen Pen (0)" | grep -o "id=[0-9]*" | cut -d= -f2)
+
+# Error
+
+if [ -z "$PAD_ID" ] || [ -z "$PEN_ID" ]; then
+    echo "Dispositivos não encontrados. Verifique os nomes e IDs."
+    exit 1
+fi
+
+# Pad
+xinput test "$PAD_ID" | while read line; do
+    case $line in
+        *"button press   2"*)
+            ACTIVE_WINDOW=$(xdotool getactivewindow)
+            xdotool windowactivate $ACTIVE_WINDOW key Print
+            ;;
+    esac
+done &
+
+# Pen
+
+xinput test "$PEN_ID" | while read line; do
+    case $line in
+        *"button press   2"*)
+            ACTIVE_WINDOW=$(xdotool getactivewindow)
+            xdotool windowactivate $ACTIVE_WINDOW keydown Control_L key 7 keyup Control_L 
+            ;;
+    esac
+done
