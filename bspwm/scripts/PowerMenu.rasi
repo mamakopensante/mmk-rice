@@ -65,7 +65,7 @@ inputbar {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    font:                        "Cantarell Regular 11";
+    font:                        "Cantarell Regular 12";
     str:                         "Power Menu:";
     padding:                     5px 16px 5px 8px;
     background-color:            @background;

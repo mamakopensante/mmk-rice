@@ -8,6 +8,6 @@ battery_charging=`acpi | grep "Battery 0" | grep -c "Charging"`
 
 if [ $battery_level -le 30 ] && [ $battery_charging -eq 0 ]; then
 
-    dunstify -u critical "Battery : ${battery_level}%"
+    dunstify -u critical -h string:x-dunst-stack-tag:brightness "Battery : ${battery_level}%"
 
 fi

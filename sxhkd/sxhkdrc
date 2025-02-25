@@ -10,9 +10,9 @@ Menu
 alt + shift + r
 	alacritty --class ranger -e ranger
 
-# Screenshoter
-Print
-	flameshot gui
+# Bluetooth
+alt + shift + b
+   sh "$HOME"/.config/bspwm/scripts/Bluetooth
 
 # Power menu
 alt + shift + p
@@ -24,7 +24,11 @@ XF86MonBrightness{Up,Down}
 
 # Volume
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-	sh "$HOME"/.config/bspwm/scripts/Volume{ --inc, --dec, --toggle} 
+	sh "$HOME"/.config/bspwm/scripts/Volume {up,down,mute} 
+
+# Info
+super + d
+    sh "$HOME"/.config/bspwm/scripts/Info
 
 # Reload sxkdrc
 super + Escape
@@ -115,3 +119,7 @@ super + alt + shift + {h,j,k,l}
 # Move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Screenshoter
+Print
+	flameshot gui

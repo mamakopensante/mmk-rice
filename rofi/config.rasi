@@ -1,12 +1,17 @@
 configuration {
 
 	font:	"Cantarell Regular 12";
-	modi:	"drun,calc,window";
+   modi: "drun,calc,window";
    key-switch-modi:  "Right";
    key-switch-modi-back:   "Left";
 	display-drun:	"Applications";
 	display-window:	"Window";
 	display-calc:	"Calc";
+   matching:   "normal";
+   kb-row-up: "Up,KP_Up";
+   kb-row-down: "Down,KP_Down";
+   kb-row-left: "KP_Left";
+   kb-row-right: "KP_Right";
 	show-icons:	true;
 	drun-display-format:	"{name}";
 	disable-history:	false;

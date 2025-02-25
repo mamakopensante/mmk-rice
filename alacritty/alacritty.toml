@@ -20,6 +20,7 @@ dynamic_title = true
 opacity = 1.0
 dynamic_padding = true
 padding = { x = 10, y = 10 }
+dimensions = { columns = 105, lines = 30}
 
 [colors.primary]
 
