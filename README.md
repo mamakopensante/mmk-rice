@@ -2,8 +2,8 @@ esses são as minhas configs
 
 
 # List
-alacritty
-rofi
+alacritty \
+rofi \
 bspwm
 dunst
 nvim
