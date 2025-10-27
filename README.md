@@ -1,5 +1,4 @@
-esses são as minhas configs
-
+Esse é o meu rice baseado no tema do vscode : min-theme
 
 # List
 alacritty \
@@ -13,3 +12,4 @@ neofetch \
 yazi \
 xournalpp \
 zathura \
+zsh \
