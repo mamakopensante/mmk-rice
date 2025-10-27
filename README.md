@@ -12,4 +12,4 @@ neofetch \
 yazi \
 xournalpp \
 zathura \
-zsh \
+zsh 
