@@ -1,4 +1,4 @@
-Esse é o meu rice baseado no tema do vscode : min-theme
+## Esse é o meu rice baseado no tema min-theme do vscode.
 
 # List
 alacritty \
