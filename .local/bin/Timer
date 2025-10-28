@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Tempo total em segundos (padrão: 60 segundos)
+TIMER=${1:-60}
+
+# ID da notificação (pra substituir depois)
+NOTIFY_ID=0
+
+# Loop regressivo
+for (( i=$TIMER; i>=0; i-- ))
+do
+    # Formata o tempo em MM:SS
+    MIN=$((i / 60))
+    SEC=$((i % 60))
+    TIME_FMT=$(printf "%02d:%02d" $MIN $SEC)
+
+    # Envia a notificação (substituindo a anterior)
+    NOTIFY_ID=$(dunstify -a "Timer" -h string:x-dunst-stack-tag:timer "Timer:" "$TIME_FMT" -u normal)
+
+    sleep 1
+done
+
+# Alerta final
+dunstify -a "Timer" -u normal "Timer:" "finished"

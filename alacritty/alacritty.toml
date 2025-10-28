@@ -17,7 +17,7 @@ save_to_clipboard = true
 
 decorations = "none"
 dynamic_title = true
-opacity = 1.0
+opacity = 0.5
 dynamic_padding = true
 padding = { x = 10, y = 10 }
 dimensions = { columns = 105, lines = 30}
@@ -25,34 +25,34 @@ dimensions = { columns = 105, lines = 30}
 [colors.primary]
 
 background = "#000000"
-foreground = "#AAAAAA"
+foreground = "#c1c1c1"
 
 [colors.normal]
 
-black = "#555555"
-red = "#ff5555"
-green = "#55ff55"
-yellow = "#ffff55"
-blue = "#5555ff"
-magenta = "#ff55ff"
-cyan = "#55ffff"
-white = "#ffffff"
+black    = "#000000"
+red      = "#f97583"
+green    = "#5c5c5c"
+yellow   = "#ffab70"
+blue     = "#79b8ff"
+magenta  = "#b392f0"
+cyan     = "#9e9e9e"
+white    = "#ffffff"
 
 [colors.bright]
 
-black = "#555555"
-red = "#ff5555"
-green = "#55ff55"
-yellow = "#ffff55"
-blue = "#5555ff"
-magenta = "#ff55ff"
-cyan = "#55ffff"
-white = "#ffffff"
+black    = "#555555"
+red      = "#f97583"
+green    = "#5c5c5c"
+yellow   = "#ffab70"
+blue     = "#79b8ff"
+magenta  = "#b392f0"
+cyan     = "#9e9e9e"
+white    = "#ffffff"
 
 [font]
 
-normal = { family = "VGA", style = "Regular" }
-bold = { family = "VGA", style = "Bold" }
-italic = { family = "VGA", style = "Italic" }
+normal      = { family = "VGA", style = "Regular" }
+bold        = { family = "VGA", style = "Bold" }
+italic      = { family = "VGA", style = "Italic" }
 bold_italic = { family = "VGA", style = "BoldItalic" }
-size = 10
+size        = 10

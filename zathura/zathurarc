@@ -18,7 +18,7 @@ set completion-highlight-fg rgba(0,0,0,1)
 set completion-group-bg rgba(0,0,0,0)
 set completion-group-fg "#AAAAAA"
 
-set selection-clipboard clipboard
+# set selection-clipboard clipboard
 set adjust-open "width"
 set recolor true
 map i recolor

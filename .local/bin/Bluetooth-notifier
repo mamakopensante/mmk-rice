@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+
+# Lista de dispositivos já conectados
+CONNECTED_DEVICES=""
+
+while true; do
+    # Obtém a lista de dispositivos conectados
+    CURRENT_DEVICES=$(bluetoothctl devices Connected | awk '{print $2}')
+
+    # Verifica novos dispositivos conectados
+    for DEVICE in $CURRENT_DEVICES; do
+        if ! echo "$CONNECTED_DEVICES" | grep -q "$DEVICE"; then
+            DEVICE_NAME=$(bluetoothctl info "$DEVICE" | grep "Name" | cut -d ' ' -f2-)
+            dunstify -u low "Bluetooth" "${DEVICE_NAME:-$DEVICE} connected"
+        fi
+    done
+
+    # Atualiza a lista de dispositivos conectados
+    CONNECTED_DEVICES="$CURRENT_DEVICES"
+
+    # Aguarda 5 segundos antes de verificar novamente
+    sleep 5
+done

@@ -11,7 +11,7 @@ get_volume() {
 # Função para exibir notificações
 send_notification() {
     local message=$1
-    dunstify -u low -t 5555 -h string:x-dunst-stack-tag:brightness "$message"
+    dunstify -u low -t 5555 -h string:x-dunst-stack-tag:volume "$message"
 }
 
 # Verifica o parâmetro e ajusta o volume
@@ -32,7 +32,7 @@ case $1 in
     mute)
         wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q "MUTED"; then
-            send_notification "Volume : 0%"
+            send_notification "Volume : MUTED"
         else
             volume=$(get_volume)
             send_notification "Volume : $volume%"

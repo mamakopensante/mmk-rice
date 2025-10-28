@@ -11,7 +11,7 @@ options=(
 rofi_cmd() {
 	rofi -dmenu \
 		-no-click-to-exit \
-		-theme "$HOME"/.config/bspwm/scripts/PowerMenu.rasi
+		-theme "$HOME"/.config/rofi/PowerMenu.rasi
 }
 
 chosen=$(printf "%s\n" "${options[@]}" | rofi_cmd)

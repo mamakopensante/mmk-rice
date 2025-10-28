@@ -4,122 +4,146 @@ super + Return
 
 # Launcher
 Menu
-	rofi -show
+    setsid nice -n -10 rofi -show drun >/dev/null 2>&1 &
 
 # Ranger
 alt + shift + r
-	alacritty --class ranger -e ranger
+	 alacritty --class ranger -e ranger
+
+# Ranger
+alt + shift + y
+	 alacritty --class yazi -e yazi
 
 # Bluetooth
 alt + shift + b
-   sh "$HOME"/.config/bspwm/scripts/Bluetooth
+    alacritty -o window.dimensions.columns=68 -o window.dimensions.lines=19 --class bluetui -e bluetui
 
 # Power menu
 alt + shift + p
-	sh "$HOME"/.config/bspwm/scripts/PowerMenu
+	 sh "$HOME"/.local/bin/PowerMenu
+
+# Music
+alt + shift + m
+	 alacritty --class ncmpcpp -e ncmpcpp
+
+# Btop++
+alt + shift + z
+	 alacritty --class btop -e btop
 
 # Brightness
 XF86MonBrightness{Up,Down}
-	sh "$HOME"/.config/bspwm/scripts/Brightness {up,down}
+	 sh "$HOME"/.local/bin/Brightness {up,down}
 
 # Volume
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-	sh "$HOME"/.config/bspwm/scripts/Volume {up,down,mute} 
+	 sh "$HOME"/.local/bin/Volume {up,down,mute} 
 
 # Info
 super + d
-    sh "$HOME"/.config/bspwm/scripts/Info
+    sh "$HOME"/.local/bin/Info
+
+# # Timer (1)
+# alt + shift + o
+#     sh "$HOME"/.config/bspwm/scripts/Timer 360
+#
+# # Timer (2)
+# alt + shift + d
+#     sh "$HOME"/.config/bspwm/scripts/Timer 1440
+#
+# # Timer (3)
+# alt + shift + k
+#     pkill -f Timer & dunstify "Timer:" "Cancelado"
 
 # Reload sxkdrc
 super + Escape
-	pkill -USR1 -x sxhkd
+	 pkill -USR1 -x sxhkd
 
 # Quit/Restart bspwm
 super + alt + {q,r}
-	bspc {quit,wm -r}
+	 bspc {quit,wm -r}
 
 # Close and kill
 super + {_,shift + }w
-	bspc node -{c,k}
+	 bspc node -{c,k}
 
 # Alternate between the tiled and monocle layout
 super + m
-	bspc desktop -l next
+	 bspc desktop -l next
 
 # Send the newest marked node to the newest preselected node
 super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+	 bspc node newest.marked.local -n newest.!automatic.local
 
 # Swap the current node and the biggest window
 super + g
-	bspc node -s biggest.window
+	 bspc node -s biggest.window
 
 # Set the window state
 super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+	 bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # Set the node flags
 super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+	 bspc node -g {marked,locked,sticky,private}
 
 # Focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	 bspc node -{f,s} {west,south,north,east}
 
 # Focus the node for the given path jump
 super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+	 bspc node -f @{parent,brother,first,second}
 
 # Focus the next/previous window in the current desktop
 super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+	 bspc node -f {next,prev}.local.!hidden.window
 
 # Focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	 bspc desktop -f {prev,next}.local
 
 # Focus the last node/desktop
 super + {grave,Tab}
-	bspc {node,desktop} -f last
+	 bspc {node,desktop} -f last
 
 # Focus the older or newer node in the focus history
 super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+	 bspc wm -h off; \
+	 bspc node {older,newer} -f; \
+	 bspc wm -h on
 
 # Focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	 bspc {desktop -f,node -d} '^{1-9,10}'
 
 # Preselect the direction
 super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+	 bspc node -p {west,south,north,east}
 
 # Preselect the ratio
 super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+	 bspc node -o 0.{1-9}
 
 # Cancel the preselection for the focused node
 super + ctrl + space
-	bspc node -p cancel
+	 bspc node -p cancel
 
 # Cancel the preselection for the focused desktop
 super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+	 bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 # Expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	 bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # Contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	 bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # Move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+	 bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Screenshoter
 Print
-	flameshot gui
+	 flameshot gui

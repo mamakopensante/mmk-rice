@@ -1,0 +1,32 @@
+#!/bin/bash
+
+date_now=$(date +"%d %A, %H:%M")
+
+battery_level_0=$(acpi | grep -P -o '[0-9]+(?=%)')
+
+battery_level_1=$(bluetoothctl info "$1" | grep "Battery Percentage" | awk -F '[()]' '{print $2}')
+
+volume_output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+volume_level=$(echo "$volume_output" | awk '{printf "%.0f%%", $2 * 100}')
+
+if [ -z "$battery_level_1" ]; then
+    
+    if echo "$volume_output" | grep -q "\[MUTED\]"; then
+
+        dunstify -u low -t 5555 -h string:x-dunst-stack-tag:info "$date_now" \
+            "󰁹 (notebook) : $battery_level_0%\\n      : $volume_level"
+
+    else
+
+        dunstify -u low -t 5555 -h string:x-dunst-stack-tag:info "$date_now" \
+            "󰁹 (notebook) : $battery_level_0%\\n      : $volume_level"
+
+    fi
+
+else
+
+    dunstify -u low -t 5555 -h string:x-dunst-stack-tag:info "$date_now" \
+        "󰁹 (notebook) : $battery_level_0%\\n 󰁹 (fone) : $battery_level_1%\\n    (fone) : $volume_level"
+
+fi

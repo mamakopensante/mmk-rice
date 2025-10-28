@@ -7,32 +7,43 @@ bspc monitor -d I II III IV V
 # Configs
 
 bspc config border_width         	1
-bspc config window_gap           	10
+bspc config window_gap           	5
 bspc config split_ratio          	0.5
-bspc config borderless_monocle  	true
+bspc config borderless_monocle  	   true
 bspc config gapless_monocle      	true
 bspc config focus_follows_pointer	true
-bspc config initial_polarity 		first_child
-bspc config focused_border_color	"#555555"
+bspc config automatic_scheme        spiral
+bspc config initial_polarity 		   second_child
+bspc config focused_border_color	   "#555555"
 
 # Rules
 
 bspc rule -a Com.github.xournalpp.xournalpp desktop='^1'
 bspc rule -a discord desktop='^2' follow=off
 bspc rule -a Google-chrome desktop='^3'
+bspc rule -a Minecraft 1.21.5 desktop='^4'
+bspc rule -a minecraft-launcher desktop='^4'
 bspc rule -a Spotify desktop='^5'
 
+bspc rule -a org.nickvision.cavalier state=floating
 bspc rule -a ranger state=floating
+bspc rule -a bluetui state=floating
+bspc rule -a yazi state=floating
+bspc rule -a ncmpcpp state=floating
+bspc rule -a btop state=floating
 bspc rule -a mpv state=floating
 bspc rule -a Lxappearance state=floating
 bspc rule -a org.gnome.Nautilus state=floating
 bspc rule -a Alacritty state=floating
 bspc rule -a Zathura state=floating
 bspc rule -a pavucontrol state=floating
+bspc rule -a AppRun.wrapped state=tilted
 
 # Autostart
 
-google-chrome-stable &
-env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U &
+# google-chrome-stable &
+# env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U &
 redshift -P -O 3500k &
+# picom &
+feh -z --no-fehbg --bg-fill ~/Pictures/wallpapers/ &
 xsetroot -cursor_name left_ptr

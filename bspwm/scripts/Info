@@ -1,9 +1,0 @@
-#!/bin/bash
-
-date_now=$(date +"%d %A, %H:%M")
-
-battery_level_0=$(acpi | grep -P -o '[0-9]+(?=%)')
-
-battery_level_1=$(bluetoothctl info "$1" | grep "Battery Percentage" | awk -F '[()]' '{print $2}')
-
-dunstify -u low -t 5555 -h string:x-dunst-stack-tag:brightness "$date_now" "Notebook : $battery_level_0% ; Fone : $battery_level_1%"

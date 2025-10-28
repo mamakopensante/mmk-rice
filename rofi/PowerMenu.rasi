@@ -1,0 +1,142 @@
+configuration {
+
+	show-icons:                   false;
+   transparency:                 "real";
+	hover-select:                 true;
+	me-select-entry:              "";
+	me-accept-entry:              "MousePrimary";
+
+}
+
+* {
+
+    separatorcolor:	            transparent;
+
+	 background:	               #000000;
+    background-alt:	            transparent;
+	 foreground:	               #c1c1c1;
+
+	 selected-normal-background:	#ffab70;
+	 selected-normal-foreground:	#000000;
+
+	 selected-active-background:	#f97583;
+	 selected-active-foreground:	#000000;
+
+	 active-background:	         transparent;
+	 active-foreground:	         #f97583;
+
+	 alternate-normal-background: transparent;
+	 alternate-normal-foreground:	@foreground;
+
+	 alternate-active-background:	transparent;
+    alternate-active-foreground:	#f97583;
+
+}
+
+window {
+
+    transparency:                "real";
+    // location:                    center;
+    // anchor:                      center;
+    // fullscreen:                  false;
+    width:                       450px;
+    border-radius:               5px;
+    background-color:            @background;
+    border:                      2px solid;
+    border-color:                #5c5c5c;
+    padding:                     12px;
+    // x-offset:                    0px;
+    // y-offset:                    0px;
+
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     8px;
+    margin:                      0;
+    padding:                     0px;
+    background-color:            @background;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0;
+    padding:                     10px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "textbox-prompt-colon", "prompt" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    font:                        "Cantarell Bold 12";
+    str:                         "Power Menu";
+    padding:                     0px;
+    background-color:            @background;
+    text-color:                  #ffffff;
+}
+
+prompt {
+
+    enabled:                     false;
+
+}
+
+message {
+
+    enabled:                     false;
+
+}
+
+listview {
+
+    enabled:                     true;
+    columns:                     5;
+    lines:                       1;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cycle:                       false;
+    border:                      0px solid;
+    scrollbar:                   false;
+    dynamic:                     true;
+    // layout:                      vertical;
+    // reverse:                     false;
+    
+    // spacing:                     0px;
+    // border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  transparent;
+    cursor:                      "default";
+
+}
+
+element {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0;
+    padding:                     8px;
+    border:                      0px solid;
+    border-radius:               5px;
+    border-color:		            transparent;
+    background-color:            transparent;
+    text-color:                  #c1c1c1;
+    cursor:                      pointer;
+}
+
+element-text {
+    font:                        "Material Design Icons Desktop 14";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            @selected-normal-background;
+    text-color:                  @background;
+}

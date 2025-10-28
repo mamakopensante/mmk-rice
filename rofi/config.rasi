@@ -1,58 +1,127 @@
 configuration {
 
-	font:	"Cantarell Regular 12";
-   modi: "drun,calc,window";
-   key-switch-modi:  "Right";
-   key-switch-modi-back:   "Left";
-	display-drun:	"Applications";
-	display-window:	"Window";
-	display-calc:	"Calc";
-   matching:   "normal";
-   kb-row-up: "Up,KP_Up";
-   kb-row-down: "Down,KP_Down";
-   kb-row-left: "KP_Left";
-   kb-row-right: "KP_Right";
-	show-icons:	true;
-	drun-display-format:	"{name}";
-	disable-history:	false;
-	hover-select:				true;
-	me-select-entry:			"";
-	me-accept-entry:			"MousePrimary";
+	font:	                        "Cantarell 12";
+   modi:                         "drun,window";
+   key-switch-modi:              "Right";
+   key-switch-modi-back:         "Left";
+	display-drun:	               "Applications";
+	display-window:	            "Windows";
+   matching:                     "prefix";
+   kb-row-up:                    "Up,KP_Up";
+   kb-row-down:                  "Down,KP_Down";
+   kb-row-left:                  "KP_Left";
+   kb-row-right:                 "KP_Right";
+	show-icons:	                  true;
+   drun-use-desktop-cache:       true;
+	drun-display-format:	         "{name}";
+	disable-history:	            false;
+   transparency:                 "real";
+	hover-select:				      true;
+	me-select-entry:			      "";
+	me-accept-entry:			      "MousePrimary";
 
 }
 
 * {
 
-	separatorcolor:	transparent;
+	 separatorcolor:	            transparent;
 
-	background:	#000000;
-	foreground:	#AAAAAA;
+	 background:	               #000000;
+    background-alt:	            transparent;
+	 foreground:	               #c1c1c1;
 
-	selected-normal-background:	#5555ff;
-	selected-normal-foreground:	#000000;
+	 selected-normal-background:	#ffab70;
+	 selected-normal-foreground:	#000000;
 
-	selected-active-background:	#ff5555;
-	selected-active-foreground:	#000000;
+	 selected-active-background:	#f97583;
+	 selected-active-foreground:	#000000;
 
-	active-background:	transparent;
-	active-foreground:	#ff5555;
+	 active-background:	         transparent;
+	 active-foreground:	         #f97583;
 
-	alternate-normal-background: 	transparent;
-	alternate-normal-foreground:	#AAAAAA;
+	 alternate-normal-background: transparent;
+	 alternate-normal-foreground:	@foreground;
 
-	alternate-active-background:	transparent;
-	alternate-active-foreground:	#ff5555;
+	 alternate-active-background:	transparent;
+    alternate-active-foreground:	#f97583;
+
+}
+
+window {
+
+    transparency:                "real";
+    width:                       450px;
+    border-radius:               5px;
+    background-color:            #000000;
+    border:                      2px solid;
+    border-color:                #5c5c5c;
+    padding:                     12px;
 
 }
 
 mainbox {
 
-	children:	[inputbar,listview];
+	 children:	                  [inputbar,listview];
+    spacing:                     8px;
+    margin:                      0;
+    padding:                     0px;
+
+}
+
+inputbar {
+
+    children:                    ["prompt", "entry"];
+    spacing:                     20px;
+    margin:                      0;
+    padding:                     10px;
+
+}
+
+prompt {
+
+    font:                        "Cantarell Bold 12";
+    text-color:                  #ffffff;
+
+}
+
+
+entry {
+
+    placeholder:                 "Search Apps";
+    text-color:                  #9e9e9e;
+    placeholder-color:           #555555;
 
 }
 
 listview {
 
-	scrollbar:	false;
+    columns:                     1;
+    lines:                       7;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cycle:                       false;
+    border:                      0px solid;
+    background-color:            transparent;
+	 scrollbar:	                  false;
+    dynamic:                     true;
+
+}
+
+element {
+
+    spacing:                     20px;
+    margin:                      0;
+    padding:                     8px;
+    border:                      0px solid;
+    border-radius:               5px;
+    border-color:                transparent;
+    background-color:            transparent;
+    text-color:                  #c1c1c1;
+
+}
+
+element normal.normal {
+
+    background-color:            transparent;
 
 }

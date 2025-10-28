@@ -2,8 +2,8 @@
     # Configurações de monitor e posição
     monitor = 0
     follow = mouse
-    origin = top-right
-    offset = 10x72
+    origin = top-center
+    offset = 10x12
     scale = 0
 
     # Limite de notificações
@@ -18,9 +18,9 @@
     padding = 15
     horizontal_padding = 15
     text_icon_padding = 0
-    frame_width = 0
-    frame_color = "#00ff00"
-    corner_radius = 0
+    frame_width = 1
+    frame_color = "#5c5c5c"
+    corner_radius = 5
 
     # Ordenação e comportamento
     sort = no
@@ -36,7 +36,7 @@
     font = Cantarell Regular 12
     line_height = 0
     markup = full
-    format = "<span size='xx-large' font_desc='Cantarell 9' weight='bold'>%s</span>\n%b"
+    format = "<span size='xx-large' font_desc='Cantarell 9' weight='regular'>%s</span>\n%b"
     alignment = center
     vertical_alignment = center
     show_age_threshold = 60
@@ -74,15 +74,15 @@
 
 [urgency_low]
     background = "#000000"
-    foreground = "#ffff55"
+    foreground = "#9e9e9e"
     timeout = 3
 
 [urgency_normal]
     background = "#000000"
-    foreground = "#AAAAAA"
+    foreground = "#c1c1c1"
     timeout = 5
 
 [urgency_critical]
-    background = "#ff5555"
-    foreground = "#ffffff"
+    background = "#f97583"
+    foreground = "#000000"
     timeout = 0

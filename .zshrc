@@ -29,15 +29,6 @@ zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
-# Waiting dots
-
-expand-or-complete-with-dots() {
-  echo -n "\e[31m…\e[0m"
-  zle expand-or-complete
-  zle redisplay
-}
-zle -N expand-or-complete-with-dots
-
 # History
 
 HISTFILE=~/.zhistory
@@ -64,8 +55,8 @@ setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 
 # Prompt
 
-PROMPT='%B%F{blue}%~%f%b $(if [[ $EUID -eq 0 ]]; then echo "#"; else echo "$"; fi) '
-RPROMPT='%*'
+PROMPT='%B%F{blue}%~%f%b $(if [[ $EUID -eq 0 ]]; then echo "#"; else echo "∮"; fi) '
+RPROMPT=' dx %D{%H:%M}'
 
 # command not found
 
@@ -79,6 +70,14 @@ command_not_found_handler() {
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=yellow'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=yellow'
+ZSH_HIGHLIGHT_STYLES[function]='fg=magenta'
+# ZSH_HIGHLIGHT_STYLES[command_not_found]='fg=red,underline'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=yellow'
+# ZSH_HIGHLIGHT_STYLES[parameter]='fg=#55ffff'
+# ZSH_HIGHLIGHT_STYLES[comment]='fg=#888888,italic'
 
 # Bindkeys
 
@@ -96,7 +95,6 @@ bindkey -r '^[OC'
 bindkey -r '^[OD'
 bindkey -r '^H'
 
-bindkey '^I' expand-or-complete-with-dots
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[[3~' delete-char
@@ -106,10 +104,11 @@ bindkey '^H' backward-kill-word
 
 # Alias
 
-alias ls='ls --color=always -a'
+alias ls='eza --icons=always --color=always -a'
 alias grep='grep --color=always'
-alias cmatrix='cmatrix -u 10'
-alias hour='tty-clock -s -c -C 2'
+alias cmatrix='cmatrix -u 11 -C red'
+alias snake='pipes.sh -p 3 -c1 -c2 -c3 -c4 -c5 -c6 -c7'
+alias hour='tty-clock -s -c -C 4'
 alias pinga='ping -c2 google.com'
 alias vim='nvim'
 
@@ -118,3 +117,7 @@ alias vim='nvim'
 if [[ -z "$DISPLAY" && "$(tty)" == "/dev/tty1" ]]; then
     exec startx
 fi
+
+export SPOTIPY_CLIENT_ID='4934cedbb555483ab21feecf008dfaf2'
+export SPOTIPY_CLIENT_SECRET='f82459d07e9a4e9786845a9e1502ed3c'
+export SPOTIPY_REDIRECT_URI='http://127.0.0.1:8080'
