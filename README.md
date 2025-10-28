@@ -13,3 +13,5 @@ yazi \
 xournalpp \
 zathura \
 zsh 
+
+no futuro dar uma arrumada nos arquivos já "prontos" .
